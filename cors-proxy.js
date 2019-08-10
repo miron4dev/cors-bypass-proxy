@@ -105,7 +105,7 @@ function proxyRequest(req, res, proxy) {
     };
 
     // Strip cookies
-    delete proxyRes.headers['x-cookie'];
+    delete req.headers['x-cookie'];
 
     var proxyThroughUrl = req.corsAnywhereRequestState.getProxyForUrl(location.href);
     if (proxyThroughUrl) {
