@@ -70,6 +70,7 @@ function proxyRequest(req, res, proxy) {
         target: location,
         headers: {
             host: location.host,
+            cookie: req.headers['x-cookie']
         },
         // HACK: Get hold of the proxyReq object, because we need it later.
         // https://github.com/nodejitsu/node-http-proxy/blob/v1.11.1/lib/http-proxy/passes/web-incoming.js#L144
@@ -186,10 +187,6 @@ function onProxyResponse(proxy, proxyReq, proxyRes, req, res) {
             proxyRes.headers.location = requestState.proxyBaseUrl + '/' + locationHeader;
         }
     }
-
-    // Strip cookies
-    delete proxyRes.headers['set-cookie'];
-    delete proxyRes.headers['set-cookie2'];
 
     proxyRes.headers['x-final-url'] = requestState.location.href;
     withCORS(proxyRes.headers, req);

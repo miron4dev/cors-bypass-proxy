@@ -5,5 +5,5 @@ const port = process.env.PORT || 5000;
 proxy.createServer({
     originWhitelist: [], // Allow all origins
 }).listen(port, host, function () {
-    console.log('Running CORS Anywhere on ' + host + ':' + port);
+    console.log('Running CORS Proxy on ' + host + ':' + port);
 });
