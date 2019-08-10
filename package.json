@@ -8,6 +8,7 @@
     "start": "node server.js"
   },
   "dependencies": {
-    "cors-anywhere": "0.4.1"
+    "http-proxy": "1.17.0",
+    "proxy-from-env": "0.0.1"
   }
 }
