@@ -1,8 +1,5 @@
-import * as proxy from './cors-proxy';
-
-// Listen on a specific host via the HOST environment variable
+const proxy = require('./cors-proxy');
 const host = process.env.HOST || '0.0.0.0';
-// Listen on a specific port via the PORT environment variable
 const port = process.env.PORT || 5000;
 
 proxy.createServer({
