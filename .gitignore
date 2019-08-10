@@ -1,0 +1,9 @@
+# Editors
+.idea
+*.iml
+
+# Dependency directory
+node_modules
+
+# OS metadata
+.DS_Store
