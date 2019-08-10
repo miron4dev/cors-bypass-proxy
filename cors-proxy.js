@@ -33,7 +33,8 @@ function showUsage(help_file, headers, response) {
  * @param request {ServerRequest}
  */
 function withCORS(headers, request) {
-    headers['access-control-allow-origin'] = 'localhost:3001';
+    headers['access-control-allow-origin'] = '*';
+    headers['Access-Control-Allow-Credentials'] = 'true';
     var corsMaxAge = request.corsAnywhereRequestState.corsMaxAge;
     if (corsMaxAge) {
         headers['access-control-max-age'] = corsMaxAge;
@@ -102,8 +103,6 @@ function proxyRequest(req, res, proxy) {
             },
         },
     };
-
-    console.log(req.headers);
 
     var proxyThroughUrl = req.corsAnywhereRequestState.getProxyForUrl(location.href);
     if (proxyThroughUrl) {
